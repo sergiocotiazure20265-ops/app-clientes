@@ -16,5 +16,9 @@ export const routes: Routes = [
     },
     {
         path: "dashboard", component: ClientesDashboard
+    },
+    {
+        /* Mapeamento da rota inicial do projeto */
+        path: "", pathMatch: "full", redirectTo: "/dashboard"
     }
 ];

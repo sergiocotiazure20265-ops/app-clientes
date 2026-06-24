@@ -1,1 +1,66 @@
-<p>clientes-cadastro works!</p>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5>Cadastro de clientes</h5>
+        <p>Preencha os campos para inserir um novo cliente.</p>
+
+        <form [formGroup]="formCadastro" (ngSubmit)="cadastrarCliente()">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Nome do cliente:</label>
+                    <input type="text" class="form-control" formControlName="nome"/>
+
+                    @if(formCadastro.get('nome')?.touched && formCadastro.get('nome')?.invalid) {
+                        @if(formCadastro.get('nome')?.hasError('required')) {
+                            <span class="text-danger">Campo obrigatório.</span>
+                        }
+                        @else if(formCadastro.get('nome')?.hasError('minlength')) {
+                            <span class="text-danger">O nome deve ter no mínimo 6 caracteres.</span>
+                        }
+                        @else if(formCadastro.get('nome')?.hasError('maxlength')) {
+                            <span class="text-danger">O nome deve ter no máximo 150 caracteres.</span>
+                        }
+                    }
+
+                </div>
+                <div class="col-md-3">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" formControlName="email"/>
+
+                    @if(formCadastro.get('email')?.touched && formCadastro.get('email')?.invalid) {
+                        @if(formCadastro.get('email')?.hasError('required')) {
+                            <span class="text-danger">Campo obrigatório.</span>
+                        }
+                        @else if(formCadastro.get('email')?.hasError('email')) {
+                            <span class="text-danger">Informe um endereço de email válido.</span>
+                        }
+                    }
+
+                </div>
+                <div class="col-md-3">
+                    <label>CPF:</label>
+                    <input type="text" class="form-control" formControlName="cpf"/>
+
+                    @if(formCadastro.get('cpf')?.touched && formCadastro.get('cpf')?.invalid) {
+                        @if(formCadastro.get('cpf')?.hasError('required')) {
+                            <span class="text-danger">Campo obrigatório.</span>
+                        }
+                        @else if(formCadastro.get('cpf')?.hasError('pattern')) {
+                            <span class="text-danger">O cpf deve ter somente 11 números.</span>
+                        }
+                    }
+
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-success shadow-sm" value="Realizar cadastro"
+                        [disabled]="formCadastro.invalid"/>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
