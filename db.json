@@ -1,0 +1,19 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "nome": "Sergio Mendes",
+      "email": "sergio.coti@gmail.com",
+      "cpf": "12345678900",
+      "dataHoraCadastro": "2026-06-26T07:30:00"
+    },
+    {
+      "nome": "Ana Maria",
+      "email": "anamaria@gmail.com",
+      "cpf": "32145698700",
+      "dataHoraCadastro": "2026-06-26T11:39:37.781Z",
+      "id": "RDxbWBdntDc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ClienteService } from '../../../services/cliente-service';
+import { Cliente } from '../../../models/cliente';
 
 @Component({
   selector: 'app-clientes-cadastro',
@@ -14,6 +16,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class ClientesCadastro {
 
+  //Injeção de dependência da classe de serviço
+  private clienteService = inject(ClienteService);
+
   //Estrutura do formulário
   formCadastro = new FormGroup({
     nome : new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(150)]),
@@ -23,7 +28,21 @@ export class ClientesCadastro {
 
   //Função para capturar o evento de submit do formulário
   cadastrarCliente() {
-    console.log(this.formCadastro.value);
+    
+    //Criar um objeto cliente para enviar os dados para a API
+    const cliente : Cliente = {
+      nome : this.formCadastro.value.nome!,
+      email : this.formCadastro.value.email!,
+      cpf : this.formCadastro.value.cpf!,
+      dataHoraCadastro : new Date().toISOString()
+    }
+
+    //Fazendo a criação do cliente
+    this.clienteService.criar(cliente)
+      .subscribe((data) => {
+        console.log('Cliente cadastrado com sucesso!', data);
+      });
+
   }
 
 }
