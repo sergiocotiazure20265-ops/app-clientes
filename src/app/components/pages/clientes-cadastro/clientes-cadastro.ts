@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClienteService } from '../../../services/cliente-service';
 import { Cliente } from '../../../models/cliente';
@@ -18,6 +18,9 @@ export class ClientesCadastro {
 
   //Injeção de dependência da classe de serviço
   private clienteService = inject(ClienteService);
+
+  //Mensagem
+  mensagem = signal<string>('');
 
   //Estrutura do formulário
   formCadastro = new FormGroup({
@@ -39,10 +42,10 @@ export class ClientesCadastro {
 
     //Fazendo a criação do cliente
     this.clienteService.criar(cliente)
-      .subscribe((data) => {
-        console.log('Cliente cadastrado com sucesso!', data);
+      .subscribe(() => {
+        this.mensagem.set('Cliente cadastrado com sucesso');
+        this.formCadastro.reset();
       });
-
   }
 
 }

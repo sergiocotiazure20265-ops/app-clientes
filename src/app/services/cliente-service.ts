@@ -18,4 +18,10 @@ export class ClienteService {
         return this.httpClient.post(this.apiUrl, cliente);
     }
 
+    //Função para fazer uma chamada GET para a API
+    //realizar a consulta de clientes
+    obterTodos() {
+        return this.httpClient.get<Cliente[]>(this.apiUrl);
+    }
+
 }

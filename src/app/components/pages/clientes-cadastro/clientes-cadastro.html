@@ -3,6 +3,13 @@
         <h5>Cadastro de clientes</h5>
         <p>Preencha os campos para inserir um novo cliente.</p>
 
+        @if(mensagem()) {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ mensagem() }}</strong>
+                <button type="button" class="btn-close" (click)="mensagem.set('')" aria-label="Close"></button>
+            </div>
+        }
+
         <form [formGroup]="formCadastro" (ngSubmit)="cadastrarCliente()">
 
             <div class="row mb-3">

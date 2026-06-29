@@ -13,6 +13,41 @@
       "cpf": "32145698700",
       "dataHoraCadastro": "2026-06-26T11:39:37.781Z",
       "id": "RDxbWBdntDc"
+    },
+    {
+      "nome": "João Pedro",
+      "email": "joaopedro@gmail.com",
+      "cpf": "32145698712",
+      "dataHoraCadastro": "2026-06-29T10:33:16.888Z",
+      "id": "cqxTlAPbuUw"
+    },
+    {
+      "nome": "Ana Carolina",
+      "email": "anacarolina@gmail.com",
+      "cpf": "12345677790",
+      "dataHoraCadastro": "2026-06-29T10:49:46.547Z",
+      "id": "u1xzlhVLDpw"
+    },
+    {
+      "nome": "Ana Paula",
+      "email": "anapaula@gmail.com",
+      "cpf": "16544545451",
+      "dataHoraCadastro": "2026-06-29T11:51:40.330Z",
+      "id": "qYj7A762l8Q"
+    },
+    {
+      "nome": "Roberto Silva",
+      "email": "robertosilva@gmail.com",
+      "cpf": "32145698810",
+      "dataHoraCadastro": "2026-06-29T11:51:55.441Z",
+      "id": "geXHNe5nv8o"
+    },
+    {
+      "nome": "Carlos Souza",
+      "email": "carlossouza@yahoo.com",
+      "cpf": "98765412300",
+      "dataHoraCadastro": "2026-06-29T11:52:10.292Z",
+      "id": "boWywzk-a8Q"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
